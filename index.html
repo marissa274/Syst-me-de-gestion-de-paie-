@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestion de paie</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Gestion de paie</h1>
+      <p>Génère un bulletin de paie simple (brut, retenues, net).</p>
+    </header>
+
+    <section class="card">
+      <h2>Informations employé</h2>
+
+      <form id="payrollForm" class="form">
+        <div class="grid">
+          <label class="field">
+            <span>Nom complet</span>
+            <input id="fullName" type="text" placeholder="Ex: Marissa Bindeki" required />
+          </label>
+
+          <label class="field">
+            <span>Date de paie</span>
+            <input id="payDate" type="date" required />
+          </label>
+
+          <label class="field">
+            <span>Type de contrat</span>
+            <select id="contractType" required>
+              <option value="HOURLY">Horaire (à l'heure)</option>
+              <option value="SALARIED">Salarié (annuel)</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Taux de retenue (%)</span>
+            <input id="taxRate" type="number" min="0" max="100" step="0.01" value="18" required />
+          </label>
+        </div>
+
+        <div id="hourlyFields" class="grid">
+          <label class="field">
+            <span>Taux horaire ($/h)</span>
+            <input id="hourlyRate" type="number" min="0" step="0.01" placeholder="Ex: 18.50" />
+          </label>
+
+          <label class="field">
+            <span>Heures travaillées</span>
+            <input id="hoursWorked" type="number" min="0" step="0.01" placeholder="Ex: 32" />
+          </label>
+        </div>
+
+        <div id="salariedFields" class="grid hidden">
+          <label class="field">
+            <span>Salaire annuel ($)</span>
+            <input id="annualSalary" type="number" min="0" step="0.01" placeholder="Ex: 52000" />
+          </label>
+
+          <label class="field">
+            <span>Périodes de paie / an</span>
+            <input id="periodsPerYear" type="number" min="1" step="1" value="26" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Générer le bulletin</button>
+          <button type="button" id="resetBtn" class="btn">Réinitialiser</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Bulletin de paie</h2>
+      <div id="result" class="result muted">
+        Remplis le formulaire puis clique sur “Générer le bulletin”.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>⚠️ Version simplifiée (retenues = %). Ajustable plus tard (RQAP, RRQ, etc.).</small>
+    </footer>
+  </main>
+
+  <!-- IMPORTANT: si tu compiles TypeScript, ce fichier existe -->
+  <script src="app.js"></script>
+</body>
+</html>
