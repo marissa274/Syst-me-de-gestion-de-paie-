@@ -1,79 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feuille de temps - Entreprise</title>
-  <link rel="stylesheet" href="stylesheets/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feuille de temps - Entreprise</title>
+    <link rel="stylesheet" href="stylesheets/styles.css" />
 </head>
+
 <body>
-  <main class="container">
-    <header class="header">
-      <h1>Feuille de temps</h1>
-      <p>Entre tes heures de la semaine (Lundi → Dimanche) puis soumets.</p>
-    </header>
+    <main class="container">
+        <header class="header">
+            <h1>Feuille de temps</h1>
+            <p>Entre tes heures de la semaine (Lundi → Dimanche) puis soumets.</p>
+        </header>
 
-    <section class="card">
-      <h2>Infos employé</h2>
+        <section class="card">
+            <h2>Infos employé</h2>
 
-      <div class="grid">
-        <label class="field">
-          <span>Nom complet</span>
-          <input id="fullName" type="text" placeholder="Ex: Marissa Bindeki" required />
-        </label>
+            <div class="grid">
+                <label class="field">
+                    <span>Nom complet</span>
+                    <input id="fullName" type="text" placeholder="Ex: Marissa Bindeki" required />
+                </label>
 
-        <label class="field">
-          <span>Semaine (date de début)</span>
-          <input id="weekStart" type="date" required />
-        </label>
+                <label class="field">
+                    <span>Semaine (date de début)</span>
+                    <input id="weekStart" type="date" required />
+                </label>
 
-        <label class="field">
-          <span>Taux horaire ($/h) (optionnel)</span>
-          <input id="hourlyRate" type="number" min="0" step="0.01" placeholder="Ex: 18.50" />
-        </label>
-      </div>
-    </section>
+                <label class="field">
+                    <span>Taux horaire ($/h) (optionnel)</span>
+                    <input id="hourlyRate" type="number" min="0" step="0.01" placeholder="Ex: 18.50" />
+                </label>
+            </div>
+        </section>
 
-    <section class="card">
-      <h2>Heures de la semaine</h2>
+        <section class="card">
+            <h2>Heures de la semaine</h2>
 
-      <div class="tableWrap">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Jour</th>
-              <th>Heures (ex: 4.5)</th>
-            </tr>
-          </thead>
-          <tbody id="daysBody"></tbody>
-          <tfoot>
-            <tr>
-              <td><strong>Total</strong></td>
-              <td><strong id="totalHours">0</strong> h <span id="estimatedPay" class="muted"></span></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+            <div class="tableWrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Jour</th>
+                            <th>Heures (ex: 4.5)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="daysBody"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong id="totalHours">0</strong> h <span id="estimatedPay" class="muted"></span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div style="margin-top:15px;">
+                <label for="weeklyComment"><strong>Commentaire de la semaine :</strong></label>
+                <textarea id="weeklyComment" rows="3" style="width:100%; margin-top:5px;"
+                    placeholder="Ex: J’ai aidé au rush, fait inventaire, formation nouveau employé...">
+  </textarea>
+            </div>
 
-     
-    </section>
 
-    <section class="card">
-      <h2>Soumission</h2>
 
-      <div class="actions">
-        <button id="submitBtn" class="btn primary">Soumettre la semaine</button>
-        <button id="copyBtn" class="btn">Copier le résumé</button>
-        <button id="resetBtn" class="btn">Réinitialiser</button>
-      </div>
+        </section>
 
-      <div id="result" class="result muted">
-        Le résumé apparaîtra ici après soumission.
-      </div>
-    </section>
+        <section class="card">
+            <h2>Soumission</h2>
 
-  </main>
+            <div class="actions">
+                <button id="submitBtn" class="btn primary">Soumettre la semaine</button>
+                <button id="copyBtn" class="btn">Copier le résumé</button>
+                <button id="resetBtn" class="btn">Réinitialiser</button>
+            </div>
 
-  <script src="js/app.js"></script>
+            <div id="result" class="result muted">
+                Le résumé apparaîtra ici après soumission.
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/app.js"></script>
 </body>
+
 </html>
